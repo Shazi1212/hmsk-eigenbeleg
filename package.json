@@ -1,0 +1,11 @@
+{
+  "name": "hmsk-eigenbeleg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Make an Eigenbeleg (replacement receipt) as PDF in the browser. Static, no dependencies.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/",
+    "start": "python3 -m http.server 8080 --directory public"
+  }
+}

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eigenbeleg generator: replacement receipt as PDF</title>
+<meta name="description" content="Make an Eigenbeleg (replacement receipt) for a lost or never issued receipt: all fields the Finanzamt expects, PDF download, nothing uploaded.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0B0F0C">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css?v=1">
+</head>
+<body>
+
+<nav class="strip" aria-label="Site">
+  <div class="wrap strip__in">
+    <a class="strip__home" id="lnkHome" href="/tools/eigenbeleg/">&larr; hmsk.life</a>
+    <span class="strip__sp"></span>
+    <a id="lnkImprint" href="/impressum/">Impressum</a>
+    <a id="lnkPrivacy" href="/privacy/">Privacy</a>
+    <span class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
+    </span>
+  </div>
+</nav>
+
+<main class="wrap main">
+  <header class="head">
+    <p class="cmd"><span class="ps">$</span> <span data-i18n="cmd">eigenbeleg --new</span></p>
+    <h1 data-i18n="h1">Lost a receipt? Make an Eigenbeleg.</h1>
+    <p class="lead" data-i18n="lead"></p>
+  </header>
+
+  <div class="grid">
+    <form class="panel form" id="form" autocomplete="on" novalidate>
+      <fieldset class="sec">
+        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_you">You</span></legend>
+        <label class="f"><span class="flag">--name</span><span class="lbl" data-i18n="issuerName"></span>
+          <input name="issuerName" autocomplete="organization" maxlength="120"></label>
+        <label class="f"><span class="flag">--address</span><span class="lbl" data-i18n="issuerAddress"></span>
+          <textarea name="issuerAddress" rows="2" autocomplete="street-address" maxlength="300"></textarea></label>
+      </fieldset>
+
+      <fieldset class="sec">
+        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_expense">The expense</span></legend>
+        <div class="row2">
+          <label class="f"><span class="flag">--date</span><span class="lbl" data-i18n="date"></span>
+            <input type="date" name="date"></label>
+          <label class="f"><span class="flag">--number</span><span class="lbl" data-i18n="number"></span>
+            <input name="number" maxlength="40" autocomplete="off"></label>
+        </div>
+        <label class="f"><span class="flag">--paid-to</span><span class="lbl" data-i18n="payee"></span>
+          <textarea name="payee" rows="2" maxlength="300" data-ph="payee_ph"></textarea></label>
+        <div class="f" role="group" aria-labelledby="lblItems">
+          <span class="flag">--items</span><span class="lbl" id="lblItems" data-i18n="items"></span>
+          <div id="items" class="items"></div>
+          <button type="button" class="linkish" id="addItem" data-i18n="add_item">+ add line</button>
+        </div>
+        <fieldset class="f opts-f" data-field="payment">
+          <legend><span class="flag">--payment</span><span class="lbl" data-i18n="payment"></span></legend>
+          <div class="opts">
+            <label><input type="radio" name="payment" value="cash"><span data-i18n="pay_cash"></span></label>
+            <label><input type="radio" name="payment" value="card"><span data-i18n="pay_card"></span></label>
+            <label><input type="radio" name="payment" value="transfer"><span data-i18n="pay_transfer"></span></label>
+            <label><input type="radio" name="payment" value="other"><span data-i18n="pay_other"></span></label>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="sec">
+        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_why">Purpose and reason</span></legend>
+        <label class="f"><span class="flag">--purpose</span><span class="lbl" data-i18n="purpose"></span>
+          <textarea name="purpose" rows="2" maxlength="400" data-ph="purpose_ph"></textarea></label>
+        <fieldset class="f opts-f" data-field="reason">
+          <legend><span class="flag">--reason</span><span class="lbl" data-i18n="reason"></span></legend>
+          <div class="opts">
+            <label><input type="radio" name="reason" value="lost"><span data-i18n="r_lost"></span></label>
+            <label><input type="radio" name="reason" value="none"><span data-i18n="r_none"></span></label>
+            <label><input type="radio" name="reason" value="machine"><span data-i18n="r_machine"></span></label>
+            <label><input type="radio" name="reason" value="tip"><span data-i18n="r_tip"></span></label>
+            <label><input type="radio" name="reason" value="damaged"><span data-i18n="r_damaged"></span></label>
+            <label><input type="radio" name="reason" value="other"><span data-i18n="r_other"></span></label>
+          </div>
+        </fieldset>
+        <label class="f"><span class="flag">--details</span><span class="lbl" data-i18n="reasonText"></span>
+          <textarea name="reasonText" rows="2" maxlength="400" data-ph="reasonText_ph"></textarea></label>
+        <label class="f"><span class="flag">--attachments</span><span class="lbl" data-i18n="attachments"></span>
+          <input name="attachments" maxlength="200" data-ph="attachments_ph" autocomplete="off"></label>
+      </fieldset>
+
+      <fieldset class="sec">
+        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_sign">Signature</span></legend>
+        <div class="row2">
+          <label class="f"><span class="flag">--place</span><span class="lbl" data-i18n="place"></span>
+            <input name="place" maxlength="80" autocomplete="address-level2"></label>
+          <label class="f"><span class="flag">--signed-on</span><span class="lbl" data-i18n="created"></span>
+            <input type="date" name="created"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="sec">
+        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_pdf">PDF</span></legend>
+        <fieldset class="f opts-f">
+          <legend><span class="flag">--lang</span><span class="lbl" data-i18n="pdfLang"></span></legend>
+          <div class="opts">
+            <label><input type="radio" name="pdfLang" value="de" checked><span data-i18n="pdf_de"></span></label>
+            <label><input type="radio" name="pdfLang" value="en"><span data-i18n="pdf_en"></span></label>
+          </div>
+        </fieldset>
+        <label class="chk"><input type="checkbox" name="payeeLine"> <span data-i18n="payeeLine"></span></label>
+        <label class="chk"><input type="checkbox" name="credit" checked> <span data-i18n="credit"></span></label>
+      </fieldset>
+    </form>
+
+    <aside class="side">
+      <section class="panel result" id="result" aria-live="polite">
+        <p class="result__title"><span class="ps">&gt;</span> <span data-i18n="summary">Your Eigenbeleg</span></p>
+        <p class="total"><span data-i18n="total">Total (gross)</span> <b id="sumTotal">0,00 €</b></p>
+        <p class="small" id="sumWords"></p>
+        <ul class="warn" id="warnings"></ul>
+        <div class="errs" id="errors" hidden></div>
+        <button type="button" class="btn btn--main" id="downloadBtn" data-i18n="download">Download PDF</button>
+        <div id="after"></div>
+        <p class="small" data-i18n="saved"></p>
+        <p class="tools">
+          <button type="button" class="linkish" id="newBtn" data-i18n="new_receipt">Next receipt</button>
+          <button type="button" class="linkish" id="clearBtn" data-i18n="clear">Delete saved data</button>
+        </p>
+      </section>
+
+    </aside>
+  </div>
+
+  <section class="guide">
+    <p class="cmd"><span class="ps">$</span> <span data-i18n="guide_cmd">man eigenbeleg</span></p>
+    <dl id="guide"></dl>
+  </section>
+
+  <section class="sources">
+    <p class="cmd"><span class="ps">$</span> <span data-i18n="sources_cmd">cat sources.txt</span></p>
+    <p class="small" data-i18n="sources_asof"></p>
+    <ul id="sourcesList"></ul>
+    <p class="note" data-i18n="note"></p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p data-i18n="privacy_line"></p>
+</footer>
+
+<script src="config.js"></script>
+<script src="logic.js"></script>
+<script src="pdf.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
