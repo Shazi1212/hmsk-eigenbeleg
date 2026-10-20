@@ -3,7 +3,7 @@ window.EB_I18N = {
   en: {
     locale: 'en-GB',
     title: 'Eigenbeleg generator: replacement receipt as PDF',
-    cmd: 'eigenbeleg --new',
+    cmd: 'Eigenbeleg',
     h1: 'Lost a receipt? Make an Eigenbeleg.',
     lead: 'A replacement receipt (Eigenbeleg) for a business expense without an original: parking meters, tips, lost or never issued receipts. Fill in the form, download a PDF, sign it. Nothing is uploaded.',
     home_href: '/tools/eigenbeleg/', imprint: 'Imprint', imprint_href: '/imprint/', privacy: 'Privacy', privacy_href: '/privacy/',
@@ -38,7 +38,7 @@ window.EB_I18N = {
     w_ask_duplicate: 'Lost receipt: ask the payee for a duplicate (Rechnungskopie) first. An Eigenbeleg is the fallback when that is not possible.',
     w_attach_statement: 'Paid by card or transfer: note the bank statement line under Attachments and keep it with this receipt.',
     w_late: 'Signed more than a month after the expense. Write it as soon as possible; a late Eigenbeleg is less convincing.',
-    guide_cmd: 'man eigenbeleg',
+    guide_cmd: 'Good to know',
     guide: [
       ['When it is accepted', 'As an exception, when the expense was real and for your business but you have no receipt and cannot get one: a lost receipt the payee cannot replace, a parking meter that prints none, a tip, a small payment where nobody issues receipts. The basis is the rule "no booking without a document" (GoBD).'],
       ['What it must say', 'Date, amount, who you paid, what for and why it was business, why there is no original, and the date and your signature. This form asks for all of it.'],
@@ -47,7 +47,7 @@ window.EB_I18N = {
       ['Not a replacement for', 'Business meals in a restaurant: the restaurant\'s machine-printed receipt is required (§ 4 Abs. 5 Satz 1 Nr. 2 EStG, BMF letter of 19 November 2025). A tip that is not on the bill can be documented with an Eigenbeleg, ideally confirmed by the waiter.'],
       ['Keep it', 'Attach whatever proves the payment (bank statement, booking email, photo) and keep it with your records for 8 years (§ 147 AO, since 2025).'],
     ],
-    sources_cmd: 'cat sources.txt',
+    sources_cmd: 'Sources',
     sources_asof: 'As of 19 October 2026.',
     note: 'Not tax advice. Whether an Eigenbeleg is accepted is decided by your tax office case by case. Ask your tax advisor if the amounts are large or it happens often.',
     privacy_line: 'Runs in your browser. No cookies, no tracking, nothing uploaded. Your entries are saved only in this browser (localStorage) until you delete them.',
@@ -55,7 +55,7 @@ window.EB_I18N = {
   de: {
     locale: 'de-DE',
     title: 'Eigenbeleg erstellen: Vorlage als PDF, kostenlos',
-    cmd: 'eigenbeleg --neu',
+    cmd: 'Eigenbeleg',
     h1: 'Beleg verloren? Eigenbeleg erstellen.',
     lead: 'Ein Ersatzbeleg (Eigenbeleg) für eine betriebliche Ausgabe ohne Originalbeleg: Parkautomat, Trinkgeld, verlorene oder nie ausgestellte Quittung. Formular ausfüllen, PDF herunterladen, unterschreiben. Es wird nichts hochgeladen.',
     home_href: '/de/tools/eigenbeleg/', imprint: 'Impressum', imprint_href: '/impressum/', privacy: 'Datenschutz', privacy_href: '/datenschutz/',
@@ -90,7 +90,7 @@ window.EB_I18N = {
     w_ask_duplicate: 'Beleg verloren: Fragen Sie zuerst beim Zahlungsempfänger nach einer Rechnungskopie. Der Eigenbeleg ist die Lösung, wenn das nicht geht.',
     w_attach_statement: 'Mit Karte oder per Überweisung bezahlt: Notieren Sie die Zeile im Kontoauszug unter Anlagen und legen Sie ihn zum Beleg.',
     w_late: 'Mehr als einen Monat nach der Ausgabe unterschrieben. Erstellen Sie Eigenbelege möglichst sofort; ein später Beleg überzeugt weniger.',
-    guide_cmd: 'man eigenbeleg',
+    guide_cmd: 'Gut zu wissen',
     guide: [
       ['Wann er anerkannt wird', 'Als Ausnahme, wenn die Ausgabe tatsächlich und betrieblich war, Sie aber keinen Beleg haben und keinen bekommen: verlorene Quittung, die nicht ersetzt werden kann, Parkautomat ohne Beleg, Trinkgeld, kleine Zahlungen, für die niemand Belege ausstellt. Grundlage ist der Grundsatz "keine Buchung ohne Beleg" (GoBD).'],
       ['Was drinstehen muss', 'Datum, Betrag, Zahlungsempfänger, wofür und warum betrieblich, warum es keinen Originalbeleg gibt sowie Datum und Ihre Unterschrift. Das Formular fragt all das ab.'],
@@ -99,7 +99,7 @@ window.EB_I18N = {
       ['Kein Ersatz für', 'Bewirtung im Restaurant: Dafür ist die maschinell erstellte Rechnung des Restaurants nötig (§ 4 Abs. 5 Satz 1 Nr. 2 EStG, BMF-Schreiben vom 19. November 2025). Ein Trinkgeld, das nicht auf der Rechnung steht, können Sie per Eigenbeleg festhalten, am besten vom Empfänger bestätigt.'],
       ['Aufbewahren', 'Legen Sie bei, was die Zahlung belegt (Kontoauszug, Buchungsmail, Foto), und bewahren Sie alles 8 Jahre auf (§ 147 AO, seit 2025).'],
     ],
-    sources_cmd: 'cat quellen.txt',
+    sources_cmd: 'Quellen',
     sources_asof: 'Stand: 19. Oktober 2026.',
     note: 'Keine Steuerberatung. Ob ein Eigenbeleg anerkannt wird, entscheidet das Finanzamt im Einzelfall. Fragen Sie Ihre Steuerberatung, wenn die Beträge hoch sind oder es oft vorkommt.',
     privacy_line: 'Läuft im Browser. Keine Cookies, kein Tracking, kein Upload. Ihre Eingaben werden nur in diesem Browser gespeichert (localStorage), bis Sie sie löschen.',

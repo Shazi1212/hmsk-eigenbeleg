@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eigenbeleg generator: replacement receipt as PDF</title>
 <meta name="description" content="Make an Eigenbeleg (replacement receipt) for a lost or never issued receipt: all fields the Finanzamt expects, PDF download, nothing uploaded.">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0B0F0C">
+<meta name="theme-color" content="#EFF1F2">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app.css?v=1">
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="letterpress.css?v=2">
+<link rel="stylesheet" href="app.css?v=2">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
 
 <main class="wrap main">
   <header class="head">
-    <p class="cmd"><span class="ps">$</span> <span data-i18n="cmd">eigenbeleg --new</span></p>
+    <p class="eyebrow">Eigenbeleg</p>
     <h1 data-i18n="h1">Lost a receipt? Make an Eigenbeleg.</h1>
     <p class="lead" data-i18n="lead"></p>
   </header>
@@ -34,7 +35,7 @@
   <div class="grid">
     <form class="panel form" id="form" autocomplete="on" novalidate>
       <fieldset class="sec">
-        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_you">You</span></legend>
+        <legend class="sec__h"><span data-i18n="s_you">You</span></legend>
         <label class="f"><span class="flag">--name</span><span class="lbl" data-i18n="issuerName"></span>
           <input name="issuerName" autocomplete="organization" maxlength="120"></label>
         <label class="f"><span class="flag">--address</span><span class="lbl" data-i18n="issuerAddress"></span>
@@ -42,7 +43,7 @@
       </fieldset>
 
       <fieldset class="sec">
-        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_expense">The expense</span></legend>
+        <legend class="sec__h"><span data-i18n="s_expense">The expense</span></legend>
         <div class="row2">
           <label class="f"><span class="flag">--date</span><span class="lbl" data-i18n="date"></span>
             <input type="date" name="date"></label>
@@ -68,7 +69,7 @@
       </fieldset>
 
       <fieldset class="sec">
-        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_why">Purpose and reason</span></legend>
+        <legend class="sec__h"><span data-i18n="s_why">Purpose and reason</span></legend>
         <label class="f"><span class="flag">--purpose</span><span class="lbl" data-i18n="purpose"></span>
           <textarea name="purpose" rows="2" maxlength="400" data-ph="purpose_ph"></textarea></label>
         <fieldset class="f opts-f" data-field="reason">
@@ -89,7 +90,7 @@
       </fieldset>
 
       <fieldset class="sec">
-        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_sign">Signature</span></legend>
+        <legend class="sec__h"><span data-i18n="s_sign">Signature</span></legend>
         <div class="row2">
           <label class="f"><span class="flag">--place</span><span class="lbl" data-i18n="place"></span>
             <input name="place" maxlength="80" autocomplete="address-level2"></label>
@@ -99,7 +100,7 @@
       </fieldset>
 
       <fieldset class="sec">
-        <legend class="sec__h"><span class="ps">#</span> <span data-i18n="s_pdf">PDF</span></legend>
+        <legend class="sec__h"><span data-i18n="s_pdf">PDF</span></legend>
         <fieldset class="f opts-f">
           <legend><span class="flag">--lang</span><span class="lbl" data-i18n="pdfLang"></span></legend>
           <div class="opts">
@@ -114,7 +115,7 @@
 
     <aside class="side">
       <section class="panel result" id="result" aria-live="polite">
-        <p class="result__title"><span class="ps">&gt;</span> <span data-i18n="summary">Your Eigenbeleg</span></p>
+        <p class="result__title"><span data-i18n="summary">Your Eigenbeleg</span></p>
         <p class="total"><span data-i18n="total">Total (gross)</span> <b id="sumTotal">0,00 €</b></p>
         <p class="small" id="sumWords"></p>
         <ul class="warn" id="warnings"></ul>
@@ -132,12 +133,12 @@
   </div>
 
   <section class="guide">
-    <p class="cmd"><span class="ps">$</span> <span data-i18n="guide_cmd">man eigenbeleg</span></p>
+    <h2 class="h2" data-i18n="guide_cmd">Good to know</h2>
     <dl id="guide"></dl>
   </section>
 
   <section class="sources">
-    <p class="cmd"><span class="ps">$</span> <span data-i18n="sources_cmd">cat sources.txt</span></p>
+    <h2 class="h2" data-i18n="sources_cmd">Sources</h2>
     <p class="small" data-i18n="sources_asof"></p>
     <ul id="sourcesList"></ul>
     <p class="note" data-i18n="note"></p>
@@ -149,9 +150,9 @@
 </footer>
 
 <script src="config.js"></script>
-<script src="logic.js"></script>
-<script src="pdf.js"></script>
-<script src="i18n.js"></script>
-<script src="app.js"></script>
+<script src="logic.js?v=2"></script>
+<script src="pdf.js?v=2"></script>
+<script src="i18n.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

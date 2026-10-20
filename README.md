@@ -50,4 +50,4 @@ Not tax advice. Whether an Eigenbeleg is accepted is decided by the tax office c
 
 ## License
 
-MIT, see [LICENSE](LICENSE). Fonts: Martian Mono and Geist (SIL Open Font License).
+MIT, see [LICENSE](LICENSE). Fonts: Newsreader and Public Sans (SIL Open Font License), in `public/fonts/`; the shared hmsk.life look is in `public/letterpress.css`.
